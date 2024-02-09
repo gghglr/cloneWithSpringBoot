@@ -2,8 +2,8 @@ package ru.practicum.item;
 
 import lombok.*;
 import ru.practicum.user.User;
-
 import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +17,10 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private User user;
+
 
     @Column
     private String url;

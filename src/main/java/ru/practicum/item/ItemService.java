@@ -15,4 +15,9 @@ interface ItemService {
     @Transactional
     void deleteItem(long userId, long itemId);
 
+    /*@Transactional(readOnly = true)
+    List<ItemDto> getItems(long userId, Set<String> tags);
+*/
+    @Transactional(readOnly = true)
+    List<ItemDto> getUserItems(String lastName);
 }
